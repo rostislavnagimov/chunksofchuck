@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchJokes } from '../../store/actions/searchAction';
 import style from './index.module.scss';
@@ -6,7 +6,6 @@ import style from './index.module.scss';
 const Search: React.FC = () => {
   const dispatch = useDispatch()
   const total = useSelector((state: any) => state.search.jokes.total);
-  const [loading, setLoading] = useState(false)
 
   const api = 'https://api.chucknorris.io/jokes/search'
 
