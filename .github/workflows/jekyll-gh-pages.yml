@@ -36,12 +36,11 @@ jobs:
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
       - name: Install pnpm
-        run: |
-          sudo npm install -g pnpm
+        run: npm install pnpm
       - name: Install dependencies
-        run: pnpm install
+        run: npx pnpm install
       - name: Build
-        run: pnpm run build
+        run: npx pnpm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
