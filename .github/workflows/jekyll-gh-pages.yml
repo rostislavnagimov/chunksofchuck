@@ -34,4 +34,3 @@ jobs:
           deploy_key: ${{ secrets.PAT }}
           publish_dir: ./dist
           force_orphan: true
-
