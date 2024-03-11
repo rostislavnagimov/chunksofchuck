@@ -1,7 +1,4 @@
-env:
-  ACTIONS_STEP_DEBUG: true
-  
-  name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -58,6 +55,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          token: ${{ secrets.DEPLOY_TOKEN }}
 
