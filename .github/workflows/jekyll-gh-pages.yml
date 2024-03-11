@@ -1,27 +1,28 @@
-name: gh-pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - master
+      - gh-pages
 
 jobs:
-  gh-pages:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 6.32.9
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '14'
-          cache: 'pnpm'
-      - run: pnpm install
-      - run: pnpm test
 
-      - name: Deploy GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build application
+        run: pnpm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.3.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
+          branch: gh-pages
+          folder: dist
