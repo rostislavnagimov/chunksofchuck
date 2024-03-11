@@ -1,4 +1,7 @@
-name: Deploy to GitHub Pages
+env:
+  ACTIONS_STEP_DEBUG: true
+  
+  name: Deploy to GitHub Pages
 
 on:
   push:
