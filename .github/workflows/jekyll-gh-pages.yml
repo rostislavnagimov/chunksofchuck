@@ -46,6 +46,7 @@ jobs:
     permissions:
       id-token: write
       pages: write
+      actions: read
     needs: build
     steps:
       - name: Download artifact
