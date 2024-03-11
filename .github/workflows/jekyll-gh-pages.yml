@@ -23,7 +23,7 @@ jobs:
 
       - name: Build
         run: |
-          pnpm run build
+          npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
