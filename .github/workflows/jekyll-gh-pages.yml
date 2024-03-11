@@ -8,25 +8,32 @@ on:
 jobs:    
   build:
     runs-on: ubuntu-latest
-
+  
     steps:
       - uses: actions/checkout@v3
-
+  
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 18
-
+  
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 'latest'
-
+  
       - name: Install dependencies
         run: pnpm install
-
+  
       - name: Build application
         run: pnpm run build
+  
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: dist
+  
 
   deploy:
     environment:
@@ -38,9 +45,15 @@ jobs:
       pages: write
     needs: build
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build 
+          path: dist 
+  
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.DEPLOY_TOKEN }}
-          path: dist
+
