@@ -2,6 +2,7 @@
   "name": "chunksofchuck",
   "version": "1.0.0",
   "private": true,
+  "homepage": "/chunksofchuck/",
   "type": "module",
   "description": "",
   "main": "index.js",
