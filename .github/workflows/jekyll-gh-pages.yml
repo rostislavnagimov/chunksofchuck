@@ -28,11 +28,10 @@ jobs:
       - name: Build application
         run: pnpm run build
   
-      - name: Upload artifact
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
-          path: ./dist
+          path: "${{ inputs.path }}/dist/"
   
 
   deploy:
@@ -50,7 +49,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: github-pages
-          path: ./dist 
+          path: "${{ inputs.path }}/dist/"
   
       - name: Deploy to GitHub Pages
         id: deployment
