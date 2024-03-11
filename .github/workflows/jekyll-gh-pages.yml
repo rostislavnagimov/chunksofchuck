@@ -31,7 +31,7 @@ jobs:
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "${{ inputs.path }}/dist/"
+          path: ./dist
   
 
   deploy:
@@ -49,9 +49,9 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: github-pages
-          path: "${{ inputs.path }}/dist/"
+          path: ./dist
   
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4.0.4
+        uses: actions/deploy-pages@v3
 
