@@ -43,3 +43,4 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.DEPLOY_TOKEN }}
+          path: dist
