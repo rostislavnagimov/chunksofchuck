@@ -36,7 +36,8 @@ jobs:
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: |
+          curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm
       - name: Install dependencies
         run: pnpm install
       - name: Build
